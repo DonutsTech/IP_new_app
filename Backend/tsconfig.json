@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "module": "commonjs", // Usa os módulos ES
+    "target": "ES2020", // Compila para ES2020
+    "moduleResolution": "node", // Resolução de módulos compatível com Node
+    "esModuleInterop": true, // Interoperabilidade entre módulos ES e CommonJS
+    "allowSyntheticDefaultImports": true, // Permite imports simulados como default
+    "skipLibCheck": true, // Ignora a checagem de tipos em arquivos de bibliotecas
+    "strict": true, // Ativa checagem estrita de tipos
+    "resolveJsonModule": true, // Permite importar arquivos JSON
+    "jsx": "react", // Se estiver usando React
+    "outDir": "./dist", // Saída dos arquivos compilados
+    "typeRoots": ["./src/@types"] // Diretórios para tipos personalizados
+  },
+  "include": ["src/**/*"], // Inclui arquivos na pasta src
+  "exclude": ["node_modules"] // Exclui a pasta node_modules
+}

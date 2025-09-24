@@ -1,0 +1,27 @@
+@use 'variables' as *;
+
+html {
+  body {
+    background-color: $color-obsidian;
+    color: $color-white;
+    font-family: $font-family-text;
+  
+    .loading {
+      width: 100dvw;
+      height: 100dvh;
+      position: fixed;
+      top: 0;
+      left: 0;
+      background-color: rgba($color-obsidian, 1);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: $color-white;
+      font-size: 4rem;
+      font-weight: 700;
+      text-align: center;
+      font-family: $font-family-title;
+    }
+  }
+}

@@ -1,0 +1,117 @@
+@use '../../styles/variables' as *;
+$card-width: 300px;
+$card-padding: 24px;
+$border-radius: 12px;
+$transition-speed: 0.3s;
+$spacing-unit: 8px;
+
+.planCard {
+  background-color: $color-white;
+  border-radius: $border-radius;
+  padding: $card-padding;
+  text-align: center;
+  width: $card-width;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  border: 1px solid transparent;
+  transition: border-color $transition-speed ease,
+    transform $transition-speed ease;
+  color: $color-obsidian;
+  gap: 8px;
+  font-family: $font-family-text;
+
+  &.popular {
+    border-color: $color-blue-light-1;
+    transform: scale(1.05);
+
+    .popularBadge {
+      position: absolute;
+      top: -2 * $spacing-unit;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: $color-blue-light-1;
+      color: $color-white;
+      padding: 0.5 * $spacing-unit 1.5 * $spacing-unit;
+      border-radius: 20px;
+      font-size: 16px;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+  }
+
+  .header {
+    margin-bottom: 2 * $spacing-unit;
+
+    h2 {
+      font-size: 32px;
+      margin: 0;
+      line-height: 2;
+      font-weight: 500;
+      color: $color-obsidian;
+    }
+
+    .price {
+      font-size: 18px;
+      font-weight: 500;
+      margin-left: 0.5 * $spacing-unit;
+
+      span {
+        font-size: 36px;
+        font-weight: bold;
+        margin-top: $spacing-unit;
+        color: $color-obsidian;
+      }
+    }
+  }
+
+  .content {
+    flex-grow: 1;
+    text-align: left;
+    margin-bottom: 3 * $spacing-unit;
+
+    .features {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+
+      li {
+        margin-bottom: 1.5 * $spacing-unit;
+        display: flex;
+        align-items: center;
+        font-size: 14px;
+      }
+
+      .checkmarkIcon {
+        color: $color-obsidian;
+        font-size: 14px;
+        margin-right: $spacing-unit;
+      }
+
+      .infoIcon {
+        color: $color-obsidian;
+        font-size: 14px;
+        margin-left: 0.5 * $spacing-unit;
+        cursor: pointer;
+      }
+    }
+  }
+
+  a {
+    color: $color-obsidian;
+    text-decoration: none;
+    padding: 1.5 * $spacing-unit 3 * $spacing-unit;
+    border-radius: $spacing-unit;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color $transition-speed ease;
+    border: 2px solid $color-obsidian;
+    display: block;
+
+    &:hover {
+      background-color: $color-blue-light-1;
+      color: $color-white;
+    }
+  }
+}

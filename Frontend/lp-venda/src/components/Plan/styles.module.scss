@@ -1,0 +1,41 @@
+.section {
+  width: 100%;
+  height: auto;
+  min-height: 70vh;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  padding: 48px 0px;
+  flex-direction: column;
+  background-color: $color-darkBlue-base;
+
+  .header {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    width: 90%;
+
+    h2 {
+      font-family: $font-family-title;
+      font-size: clamp(2.25rem, 2.25rem + 0.875vw, 3.5rem);
+      font-weight: 700;
+    }
+
+    p {
+      font-family: $font-family-text;
+      font-size: clamp(1.125rem, 1.125rem + 0.875vw, 1.5rem);
+    }
+  }
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 48px;
+  max-width: 1200px;
+  width: 100%;
+  margin-top: 64px;
+}

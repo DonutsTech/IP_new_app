@@ -1,0 +1,165 @@
+.features {
+  width: 100%;
+  height: auto;
+  background-color: $color-darkBlue-base;
+  padding: 24px 0;
+
+  &_container {
+    width: 100%;
+    max-width: 1440px;
+    height: auto;
+    min-height: 100dvh;
+    // border: 1px solid red;
+    margin: 0 auto;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 24px;
+    padding: 16px 0;
+
+    &_title {
+      width: 90%;
+      min-width: 300px;
+      text-align: center;
+      margin: 24px;
+    }
+
+    &_description {
+      width: 60%;
+      min-width: 280px;
+      font-size: 1.2em;
+      text-align: center;
+      margin: 0 auto;
+    }
+
+    &_content {
+      width: 100%;
+      padding: 16px 0;
+      height: auto;
+      display: flex;
+      flex-flow: column nowrap;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 48px;
+
+      &_item {
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        justify-content: space-evenly;
+        gap: 16px;
+
+        &_video {
+          width: 90%;
+          min-width: 300px;
+          max-width: 640px;
+          height: auto;
+          border-radius: 16px;
+          border: 5px solid $color-blue-light-3;
+        }
+
+        &_textBox {
+          width: 90%;
+          min-width: 280px;
+          max-width: 560px;
+          height: auto;
+          display: flex;
+          flex-flow: column nowrap;
+          justify-content: center;
+          align-items: flex-start; //aqui troca
+          text-align: left; //aqui troca
+          gap: 16px;
+
+          &_title {
+            width: 100%;
+            min-width: 280px;
+            max-width: 560px;
+            text-align: left;
+          }
+
+          &_description {
+            width: 100%;
+            min-width: 280px;
+            max-width: 480px;
+            text-align: left;
+            font-size: 1.1em;
+          }
+        }
+
+        &_canhota {
+          flex-flow: row-reverse nowrap;
+
+          .features_container_content_item_textBox {
+            align-items: flex-end;
+
+            &_title {
+              text-align: right;
+            }
+
+            &_description {
+              text-align: right;
+            }
+          }
+        }
+
+        @media screen and (max-width: 768px) {
+          flex-flow: column nowrap;
+          align-items: center;
+          justify-content: center;
+          gap: 24px;
+
+          &_canhota {
+            flex-flow: column nowrap;
+
+            .features_container_content_item_textBox {
+              &_title {
+                text-align: center;
+              }
+
+              &_description {
+                text-align: center;
+              }
+            }
+          }
+
+          &_textBox {
+            &_title {
+              text-align: center;
+            }
+
+            &_description {
+              text-align: center;
+            }
+          }
+        }
+
+      }
+    }
+
+    &_cta {
+      width: 90%;
+      display: flex;
+      flex-flow: column nowrap;
+      align-items: center;
+      justify-content: center;
+      margin-top: 40px;
+      gap: 24px;
+
+      h2 {
+        text-align: center;
+        font-family: $font-family-title;
+      }
+
+      p {
+        width: 60%;
+        text-align: center;
+        margin: 16px auto;
+        font-size: 1.1em;
+      }
+    }
+  }
+
+}

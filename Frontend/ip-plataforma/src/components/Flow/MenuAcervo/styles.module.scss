@@ -1,0 +1,61 @@
+.menu {
+  position: absolute;
+  width: 348px;
+  top: 22%;
+  right: 0;
+  z-index: 20;
+
+  &_dragging {
+    .menuAcervo {
+      opacity: 0.7;
+      transform: scale(0.98);
+      transition: all 150ms ease-out;
+    }
+  }
+}
+
+.menuBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 48px;
+  height: 48px;
+  position: absolute;
+  z-index: 19;
+  margin-top: 5%;
+  margin-right: -8px;
+  background-color: $color-darkBlue-base;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+  cursor: pointer;
+  transition: all 200ms ease-in-out;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+
+  &_logo {
+    width: 60%;
+    height: auto;
+  }
+
+  &:hover {
+    .menuBtn_logo {
+      scale: 0.90;
+    }
+  }
+}
+
+.menuAcervo {
+  position: absolute;
+  top: 0%;
+  right: 0;
+  width: 300px;
+  height: 70dvh;
+  background-color: $color-darkBlue-base;
+  z-index: 20;
+  border-top-left-radius: 16px;
+  border-bottom-left-radius: 16px;
+  padding: 16px;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.10);
+  overflow: hidden;
+  will-change: transform;
+
+}

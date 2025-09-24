@@ -1,0 +1,103 @@
+
+.inputVideo {
+  width: 100%;
+  margin: 0 auto;
+  height: 144px;
+  background-color: $color-darkBlue-dark-2;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  transition: all 200ms ease-in-out;
+  
+  &_icon {
+    font-size: 64px;
+    opacity: 0.8;
+    transition: all 200ms ease-in-out;
+  }
+  
+  &_text {
+    // width: 80%;
+    display: none;
+    margin: 0 auto;
+    font-size: 14px;
+    position: absolute;
+    bottom: 8px;
+    text-align: center;
+    transition: all 200ms ease-in-out;
+
+  }
+
+  &_input {
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  &_spinner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    border-radius: 8px;
+  }
+  &_spinnerIcon {
+    font-size: 48px;
+    color: $color-white;
+    margin-bottom: 8px;
+    opacity: 0.9;
+    animation: spin 1s linear infinite;
+  }
+  &_spinnerText {
+    color: $color-white;
+    font-size: 16px;
+    opacity: 0.9;
+    font-weight: 500;
+  }
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  &:hover {
+    border: 2px dashed $color-white;
+
+    .inputVideo_icon {
+      scale: 0.9;
+    }
+
+    .inputVideo_text {
+      display: inline-block;
+      scale: 0.9;
+      opacity: 0.8;
+    }
+  }
+
+  &_msg {
+    position: absolute;
+    bottom: 8px;
+    font-size: 14px;
+    color: $color-white;
+    opacity: 0.6;
+  }
+
+  &_disabled {
+    background-color: $color-gray-dark-2;
+    cursor: not-allowed;
+
+    .inputVideo_icon {
+      opacity: 0.4;
+    }
+  }
+};

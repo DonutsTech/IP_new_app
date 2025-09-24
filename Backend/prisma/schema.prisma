@@ -1,0 +1,288 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+  //output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Plan {
+  ID String @id @default(uuid())
+  PLAN String
+  STRIPE_PLAN_ID String @unique
+  STRIPE_PLAN_PRICE String
+  PRICE Float
+  STATUS Boolean @default(true)
+  PLAYS Int
+  PLAYS_PRICE Float
+  VIDEO_LIMIT Int
+  users User[]
+
+  @@map("plans")
+}
+
+model User {
+  ID String @id @default(uuid())
+  NAME String
+  EMAIL String @unique
+  PHONE String
+  AVATAR String @default("/padrao") 
+  HASHED_PASSWORD String
+  HASHED_TOKEN String?
+  CREATED_AT DateTime? @default(now()) @db.Timestamp(0)
+  UPDATED_AT DateTime? @default(now()) @updatedAt
+  FIRST_ACESS Boolean  @default(true)
+  VALIDATION_EMAIL Boolean @default(false)
+  ROLE String @default("client")
+  ACTIVE Boolean @default(false)
+  STRIPE_CUSTOMER_ID String? @unique
+  STRIPE_SUBSCRIPTON_ID String?
+  STRIPE_SUBSCRIPTON_STATUS String?
+  PLAN Plan? @relation(fields: [PLAN_ID], references: [ID])
+  PLAN_ID String?
+  HISTORY_PLAYS History_Plays[]
+  VIDEOS Video[]
+  CAMPAIGNS Campaign[]
+
+  @@map("users")
+}
+
+model History_Plays {
+  ID String @id @default(uuid())
+  QTD_PLAYS Int @default(0)
+  PRICE_MONTH Float?
+  STATUS String? @default("ativo")
+  CREATED_AT DateTime? @default(now()) @db.Timestamp(0)
+  UPDATED_AT DateTime? @default(now()) @updatedAt
+  USER User? @relation(fields: [USER_ID], references: [ID])
+  USER_ID String?
+
+  @@map("history_plays")
+}
+
+model Video {
+  ID String @id @default(uuid())
+  NAME String
+  SIZE Int
+  FORMAT String
+  DURATION Int
+  ORIENTATION String @default("landscape")
+  HEIGHT Int
+  WIDTH Int
+  URL String
+  USER User? @relation(fields: [USER_ID], references: [ID])
+  USER_ID String?
+  CAMPAIGN_VIDEOS Campaign_Video[]
+  BONDS Bond[]
+  CREATED_AT DateTime? @default(now()) @db.Timestamp(0)
+  UPDATED_AT DateTime? @default(now()) @updatedAt
+
+  @@map("videos")
+}
+
+model Campaign {
+  ID String @id @default(uuid())
+  NAME String @default("campanha-${uuid()}")
+  EMBED_JS String?
+  EMBED_IFRAME String?
+  CORS String @default("*")
+  FEATURE Feature? @relation(fields: [FEATURE_ID], references: [ID])
+  FEATURE_ID String? @unique
+  USER User? @relation(fields: [USER_ID], references: [ID])
+  USER_ID String?
+  CAMPAIGN_VIDEOS Campaign_Video[]
+  ANALYTICS Analytics?
+  TESTS_A   Test_AB[] @relation("CampaignA")
+  TESTS_B   Test_AB[] @relation("CampaignB")
+  CREATED_AT DateTime? @default(now()) @db.Timestamp(0)
+  UPDATED_AT DateTime? @default(now()) @updatedAt
+
+  @@map("campaigns")
+}
+
+model Analytics {
+  ID String @id @default(uuid())
+  CAMPAIGN Campaign? @relation(fields: [CAMPAIGN_ID], references: [ID])
+  CAMPAIGN_ID String? @unique
+  PLAYS_UNIQUE Int @default(0)
+  VIEWS View[]
+  TESTS_A  Test_AB[] @relation("AnalyticsA") 
+  TESTS_B  Test_AB[] @relation("AnalyticsB") 
+  CREATED_AT DateTime? @default(now()) @db.Timestamp(0)
+  UPDATED_AT DateTime? @default(now()) @updatedAt
+
+  @@map("analytics")
+}
+ 
+model View {
+  ID String @id @default(uuid())
+  ANALYTICS Analytics? @relation(fields: [ANALYTICS_ID], references: [ID])
+  ANALYTICS_ID String?
+  DEVICE String
+  BROWSER String
+  TIMEZONE Int
+  VIEW Int @default(0)
+  PLAYS Int @default(0)
+  CREATED_AT DateTime? @default(now()) @db.Timestamp(0)
+  UPDATED_AT DateTime? @default(now()) @updatedAt
+
+  @@map("views")
+}
+
+model Test_AB {
+  ID            String     @id @default(uuid())
+  CAMPAIGN_A    Campaign?  @relation("CampaignA", fields: [CAMPAIGN_ID_A], references: [ID])
+  CAMPAIGN_ID_A String?
+  CAMPAIGN_B    Campaign?  @relation("CampaignB", fields: [CAMPAIGN_ID_B], references: [ID])
+  CAMPAIGN_ID_B String?
+  ANALYTICS_A   Analytics? @relation("AnalyticsA", fields: [ANALYTICS_ID_A], references: [ID])
+  ANALYTICS_ID_A String?
+  ANALYTICS_B   Analytics? @relation("AnalyticsB", fields: [ANALYTICS_ID_B], references: [ID])
+  ANALYTICS_ID_B String?
+  CREATED_AT    DateTime?  @default(now()) @db.Timestamp(0)
+  UPDATED_AT    DateTime?  @default(now()) @updatedAt
+
+  @@map("test_ab")
+} 
+
+model Campaign_Video {
+  ID String @id @default(uuid())
+  CAMPAIGN Campaign? @relation(fields: [CAMPAIGN_ID], references: [ID])
+  CAMPAIGN_ID String?
+  VIDEO Video? @relation(fields: [VIDEO_ID], references: [ID])
+  VIDEO_ID String?
+  ORDER Int @default(1)
+  BONDS Bond_Video[]
+  CREATED_AT DateTime? @default(now()) @db.Timestamp(0)
+  UPDATED_AT DateTime? @default(now()) @updatedAt
+
+  @@map("campaign_videos")
+}
+
+model Bond_Video {
+  ID String @id @default(uuid())
+  CAMPAIGN_VIDEOS Campaign_Video? @relation(fields: [CAMPAIGN_VIDEO_ID], references: [ID])
+  CAMPAIGN_VIDEO_ID String?
+  BOND Bond? @relation(fields: [BOND_ID], references: [ID])
+  BOND_ID String? @unique
+  CREATED_AT DateTime? @default(now()) @db.Timestamp(0)
+  UPDATED_AT DateTime? @default(now()) @updatedAt
+
+  @@map("bond_videos")
+}
+
+model Bond {
+  ID String @id @default(uuid())
+  VIDEO Video? @relation(fields: [VIDEO_ID], references: [ID])
+  VIDEO_ID String?
+  BUTTON Boolean @default(false)
+  BUTTON_TEXT String?
+  BUTTON_CLICK Int @default(0)
+  BUTTON_STYLE String?
+  BUTTON_START Int @default(0)
+  BOND_VIDEOS Bond_Video[]
+  CREATED_AT DateTime? @default(now()) @db.Timestamp(0)
+  UPDATED_AT DateTime? @default(now()) @updatedAt
+
+  @@map("bonds")
+}
+
+model Feature {
+  ID           String     @id @default(uuid())
+  CAMPAIGN     Campaign? 
+  AUTO_PLAY    Auto_Play? @relation(fields: [AUTO_PLAY_ID], references: [ID])
+  AUTO_PLAY_ID String?    @unique 
+  THUMB        Thumb?     @relation(fields: [THUMB_ID], references: [ID])
+  THUMB_ID     String?    @unique
+  GANCHO       Gancho?    @relation(fields: [GANCHO_ID], references: [ID])
+  GANCHO_ID    String?    @unique
+  TIMELINE     Timeline?  @relation(fields: [TIMELINE_ID], references: [ID])
+  TIMELINE_ID  String?    @unique
+  EXTERNAL_LINK External_Link? @relation(fields: [EXTERNAL_LINK_ID], references: [ID])
+  EXTERNAL_LINK_ID String? @unique
+  PIXEL        Pixel?     @relation(fields: [PIXEL_ID], references: [ID])
+  PIXEL_ID     String?    @unique
+  CREATED_AT   DateTime?  @default(now()) @db.Timestamp(0)
+  UPDATED_AT   DateTime?  @default(now()) @updatedAt
+
+  @@map("features")
+}
+
+model Auto_Play {
+  ID         String   @id @default(uuid())
+  ATIVE      Boolean  @default(false)
+  SECOND     Int
+  FEATURE    Feature? 
+  CREATED_AT DateTime? @default(now()) @db.Timestamp(0)
+  UPDATED_AT DateTime? @default(now()) @updatedAt
+
+  @@map("auto_play")
+}
+
+model Thumb {
+  ID String @id @default(uuid())
+  URL String
+  FEATURE    Feature?
+  CREATED_AT DateTime? @default(now()) @db.Timestamp(0)
+  UPDATED_AT DateTime? @default(now()) @updatedAt
+
+  @@map("thumbs")
+}
+
+model Gancho {
+  ID String @id @default(uuid())
+  URL String
+  FEATURE    Feature?
+  CREATED_AT DateTime? @default(now()) @db.Timestamp(0)
+  UPDATED_AT DateTime? @default(now()) @updatedAt
+
+  @@map("ganchos")
+}
+
+model Timeline {
+  ID String @id @default(uuid())
+  HEIGHT Int
+  COR String
+  FEATURE Feature?
+  CREATED_AT DateTime? @default(now()) @db.Timestamp(0)
+  UPDATED_AT DateTime? @default(now()) @updatedAt
+
+  @@map("timelines")
+}
+
+model External_Link {
+  ID String @id @default(uuid())
+  START Int
+  DURATION Int
+  STYLE String
+  FEATURE Feature?
+  URL String @unique
+  CREATED_AT DateTime? @default(now()) @db.Timestamp(0)
+  UPDATED_AT DateTime? @default(now()) @updatedAt
+
+  @@map("external_videos")
+}
+
+model Pixel {
+  ID String @id @default(uuid())
+  NAME_META String?
+  ID_META String?
+  NAME_GOOGLE String?
+  ID_GOOGLE String?
+  LABEL_CONVERSION_GOOGLE String?
+  SHOOTING_EVENT_GOOGLE String?
+  SHOOTING_EVENT_VALUE_GOOGLE Float?
+  FEATURE Feature?
+  CREATED_AT DateTime? @default(now()) @db.Timestamp(0)
+  UPDATED_AT DateTime? @default(now()) @updatedAt
+
+  @@map("pixels")
+} 

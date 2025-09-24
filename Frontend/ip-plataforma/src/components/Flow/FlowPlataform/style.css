@@ -1,0 +1,8 @@
+  .react-flow__panel,
+  .react-flow__attribution {
+    display: none;
+  }
+
+  .react-flow__background {
+    /* filter: opacity(0.3); */
+  }

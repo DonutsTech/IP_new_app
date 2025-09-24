@@ -1,0 +1,21 @@
+// Schemas
+
+//videos
+
+{
+  "id": "video-001",
+  "name": "Meu Primeiro Vídeo",
+  "order": 1,
+  "createdAt": "2023-10-27T10:00:00Z",
+  "properties": {
+    "size": 15000000,
+    "format": "mp4",
+    "duration": 120,
+    "orientation": "Landscape",
+    "videoHeight": 1080,
+    "videoWidth": 1920
+  },
+  "campaigns": [
+    "campaign-xyz"
+  ]
+}

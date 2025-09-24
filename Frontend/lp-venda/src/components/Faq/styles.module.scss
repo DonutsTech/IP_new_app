@@ -1,0 +1,27 @@
+.section {
+  width: 100%;
+  height: auto;
+  padding: 48px 0px;
+  background-color: $color-darkBlue-base;
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+    width: 90%;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+
+    .faqTitle {
+      font-family: $font-family-title;
+      font-size: clamp(1.5rem, 1rem + 2.2222vw, 3rem);
+      text-align: center;
+    }
+
+    .faqList {
+      width: 100%;
+      max-width: 800px;
+    }
+  }
+}

@@ -1,0 +1,88 @@
+.planoContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 0px;
+  width: 100%;
+  min-width: 300px;
+  max-width: 500px;
+  margin: 16px 0;
+
+
+  &_title {
+    font-size: 32px;
+    letter-spacing: 2px;
+    font-weight: 500;
+    color: $color-white;
+    font-family: $font-family-title;
+    text-align: center;
+    margin-bottom: 8px;
+  }
+
+  &_description {
+    font-size: 16px;
+    color: $color-white;
+    text-align: center;
+    font-family: $font-family-text;
+    margin-bottom: 16px;
+  }
+
+  .planoCards{
+    width: 100%;
+    min-width: 300px;
+    max-width: 480px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .subscribeButton:disabled{
+    width: 90%;
+    padding: 16px;
+    border: none;
+    border-radius: 8px;
+    color: $color-white;
+    cursor: not-allowed;
+
+  }
+  .subscribeButton{
+    background-color: $color-blue-light-2;
+    color: $color-white;
+    font-size: 18px;
+    font-weight: 600;
+    width: 90%;
+    padding: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out, scale 0.2s ease-in-out;
+
+    &:hover {
+      background-color: $color-blue-dark-1;
+      scale: 0.98;
+    }
+
+    
+    
+  }
+
+  // .subscribeButton{
+  //   width: 90%;
+  //   padding: 16px;
+  //   background-color: $color-blue-light-2;
+  //   color: $color-white;
+  //   font-size: 18px;
+  //   font-weight: 600;
+  //   border: none;
+  //   border-radius: 8px;
+  //   cursor: pointer;
+  //   transition: background-color 0.2s ease-in-out, scale 0.2s ease-in-out;
+
+  //   &:hover {
+  //     background-color: $color-blue-dark-1;
+  //     scale: 0.98;
+  //   }
+  // }
+}

@@ -1,0 +1,87 @@
+.card {
+  width: 100%;
+  min-height: 72px;
+  border-radius: 8px;
+  background-color: $color-white;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 4px;
+  gap: 4px;
+  border: 2px solid transparent;
+  transition: all 200ms ease-in-out;
+
+  &:hover {
+    border-color: #5B71B9;
+    box-shadow: 0 2px 8px rgba(91, 113, 185, 0.15);
+  }
+
+  &_video {
+    object-fit: cover;
+    border-radius: 4px;
+    cursor: grab;
+    transform: translateY(4px);
+    
+    &:active {
+      cursor: grabbing;
+    }
+  }
+
+  &_info {
+    flex: 1;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 4px;
+
+    &_input {
+      width: 100%;
+      height: auto;
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: center;
+      gap: 4px;
+      overflow: hidden;
+      font-size: 14px;
+      font-weight: 500;
+      color: $color-obsidian;
+
+      border: none;
+      outline: none;
+      background-color: transparent !important;
+    }
+
+    &_orientation {
+      font-size: 14px;
+      font-weight: 400;
+      color: $color-obsidian;
+      text-transform: capitalize;
+    }
+  }
+
+  &_btn {
+    width: 24px;
+    height: 24px;
+    border: none;
+    background-color: transparent;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+
+    &_icon {
+      width: 100%;
+      font-size: 16px;
+      color: $color-red-base;
+      opacity: 0.6;
+      transition: all 200ms ease-in-out;
+      cursor: pointer;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+}

@@ -1,0 +1,29 @@
+
+.helpButton {
+  width: 24px;
+  height: 24px;
+  position: fixed;
+  // background-color: $color-darkBlue-dark-3;
+  border-radius: 50%;
+  left: 16px;
+  bottom: 96px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 25;
+
+
+  &_icon {
+    font-size: 24px;
+    color: $color-white;
+  }
+
+  &:hover {
+    scale: 1.1;
+    .helpButton_icon {
+      color: $color-darkBlue-dark-3;
+    }
+  }
+
+}

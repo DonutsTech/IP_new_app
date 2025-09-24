@@ -1,0 +1,25 @@
+@use "../../styles/variables" as *;
+
+.metric__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
+  width: 33.33%;
+  height: 120px;
+
+  .metric__value {
+    font-size: clamp(1.75rem, 1.5357rem + 1.0714vw, 2.5rem);
+    font-family: $font-family-title;
+    color: $color-white;
+  }
+
+  .metric__label {
+    font-size: clamp(0.875rem, 0.8036rem + 0.3571vw, 1.125rem);
+    color: $color-white;
+    font-family: $font-family-text;
+    opacity: 85%;
+    text-align: center;
+  }
+}

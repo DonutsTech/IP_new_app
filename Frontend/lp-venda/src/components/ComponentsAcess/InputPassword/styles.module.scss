@@ -1,0 +1,53 @@
+@import "./variables";
+
+.form_inputGroup {
+    position: relative;
+    margin-bottom: 16px;
+
+    .inputIcon {
+        position: absolute;
+        top: 50%;
+        left: 16px;
+        transform: translateY(-50%);
+        color: $color-gray-dark-1;
+        font-size: 1.25rem;
+        width: 24px;
+        height: 24px;
+    }
+
+    &_input {
+        width: 100%;
+        padding: 16px 16px 16px 3rem;
+        background-color: $color-white;
+        border: 1px solid $color-darkBlue-light-2;
+        border-radius: 8px;
+        color: $color-obsidian;
+        font-size: 16px;
+        outline: none;
+
+        &::placeholder {
+            color: $color-gray-dark-2;
+        }
+    }
+
+    &_password {
+        position: relative;
+
+        &_showPasswordButton {
+            position: absolute;
+            top: 50%;
+            right: 16px;
+            transform: translateY(-50%);
+            font-size: 24px;
+            background-color: transparent !important;
+            border: none;
+            color: $color-gray-dark-1;
+            cursor: pointer;
+        }
+    }
+
+    &_repeatPassword_correct {
+        border: 2px solid $color-green-light-1;
+        border-radius: 10px;
+    }
+}

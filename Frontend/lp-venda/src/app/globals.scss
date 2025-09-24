@@ -1,0 +1,33 @@
+@use 'variables' as *;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  width: 100vw;
+  min-width: 320px;
+  height: auto;
+  min-height: 100dvh;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+
+  body {
+    width: 100%;
+    height: auto;
+    min-height: 100%;
+    background-color: $color-darkBlue-base;
+    color: $color-white;
+    font-family: $font-family-text;
+    font-size: $clamp-default;
+    user-select: none;
+
+    h1{@include text('h1');}
+    h2{@include text('h2');}
+    h3{@include text('h3');}
+    h4{@include text('h4');}
+    p{@include text('p');}
+  }
+}

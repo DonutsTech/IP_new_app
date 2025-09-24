@@ -1,0 +1,45 @@
+.content {
+  width: 100%;
+  min-height: 100dvh;
+  padding: 48px 5% 48px;
+  background-color: $color-white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: left;
+
+  &_title {
+    color: $color-obsidian;
+    margin-bottom: 24px;
+      font-family: $font-family-text;
+      font-weight: 600;
+      letter-spacing: 1px;
+  }
+
+  h2 {
+    color: $color-obsidian;
+    margin-top: 32px;
+    margin-bottom: 12px;
+    font-size: clamp(1.25rem, 2vw, 1.5rem);
+    font-family: $font-family-text;
+    font-weight: 500;
+    letter-spacing: 1px;
+  }
+
+  p {
+    color: black;
+    line-height: 1.6;
+    font-size: clamp(1rem, 1.5vw, 1.25rem);
+    margin-bottom: 16px;
+    text-align: left;
+    width: 100%;
+    max-width: 1000px;
+    font-family: $font-family-text;
+  }
+
+
+  &_link {
+    color: $color-obsidian;
+    text-decoration: underline;
+  }
+}

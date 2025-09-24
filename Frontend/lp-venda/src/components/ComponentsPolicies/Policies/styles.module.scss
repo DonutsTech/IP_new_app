@@ -1,0 +1,12 @@
+
+.section{
+  width: 100vw;
+  height: auto;
+  min-height: 100dvh;
+  padding-top: 48px;
+
+  @media screen and (max-width: 768px) {
+    padding-top: 0px;
+  }
+
+}

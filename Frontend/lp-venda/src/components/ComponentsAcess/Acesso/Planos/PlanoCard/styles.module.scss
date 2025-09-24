@@ -1,0 +1,112 @@
+.planoCard {
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 2px solid $color-gray-light-2;
+  border-radius: 8px;
+  padding: 16px 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  // background-color: $color-white;
+  background-color: $color-obsidian;
+  width: 90%;
+  min-width: 300px;
+
+
+  &:hover {
+    border-color: $color-blue-light-1;
+  }
+}
+
+.selected {
+  border-color: $color-blue-light-1;
+  box-shadow: 0 0 2px 4px rgba($color-ciano-light-1, 0.5);
+
+  scale: 1.05;
+}
+
+.notSelected {
+  scale: 0.95;
+  opacity: 0.8;
+  filter: grayscale(70%);
+}
+
+.planoInfo {
+  h3 {
+    color: $color-blue-light-3;
+    font-weight: 400;
+    letter-spacing: 1px;
+    font-size: clamp(1.125rem, 1.0139rem + 0.5556vw, 1.5rem);
+    text-align: left;
+  }
+
+  p {
+    font-size: clamp(0.875rem, 0.8009rem + 0.3704vw, 1.025rem);
+    color: $color-white;
+    font-weight: 600;
+  }
+}
+
+.planoPrice {
+  font-family: $font-family-title;
+  font-size: clamp(1.125rem, 1.0139rem + 0.5556vw, 1.5rem);
+  letter-spacing: 1px;
+  color: $color-blue-light-3;
+  font-weight: 400;
+
+}
+
+.promo {
+  align-items: flex-start;
+  display: flex;
+  flex-flow: column nowrap;
+  position: relative;
+  z-index: 30;
+
+  h3 {
+    color: $color-blue-light-3;
+    font-weight: 400;
+    letter-spacing: 1px;
+    font-family: $font-family-title;
+    font-size: clamp(1.125rem, 1.0139rem + 0.5556vw, 1.5rem);
+  }
+
+  .planoFree {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    color: $color-white;
+    gap: 16px;
+
+
+    .t2 {
+      width: auto;
+      text-align: flex-end;
+    }
+
+    .msg {
+      position: absolute;
+      top: 116px;
+      right: 16px;
+      display: none;
+      font-size: 1rem;
+      font-weight: 700;
+      color: $color-red-base;
+      background: none;
+      box-shadow: none;
+      border-radius: 0;
+      padding: 0;
+
+    }
+  }
+}
+
+.selected {
+  .planoFree {
+    .msg {
+      display: block;
+      opacity: 1;
+    }
+  }
+}

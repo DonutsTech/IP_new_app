@@ -1,0 +1,121 @@
+@import "./variables";
+
+.passwordResetContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: $color-white;
+  font-family: $font-family-text;
+  padding: 32px;
+  box-sizing: border-box;
+
+  @media screen and (max-width: 768px) {
+    padding: 24px 16px;
+    min-height: auto;
+  }
+
+  .title {
+    font-size: 24px;
+    margin-bottom: 8px;
+    text-align: center;
+    color: $color-white;
+    font-family: $font-family-title;
+    font-weight: 300;
+  }
+
+  .description {
+    font-size: 16px;
+    text-align: center;
+    margin-bottom: 24px;
+    color: $color-gray-light-2;
+    max-width: 350px;
+  }
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 400px;
+  min-width: 300px;
+
+  @media screen and (max-width: 768px) {
+    max-width: 100%; 
+    min-width: unset;
+  }
+
+  &_inputGroup {
+    position: relative;
+    margin-bottom: 16px;
+
+    .inputIcon {
+      position: absolute;
+      top: 50%;
+      left: 16px;
+      transform: translateY(-50%);
+      color: $color-gray-dark-1;
+      font-size: 1.25rem;
+      width: 24px;
+      height: 24px;
+    }
+
+    &_input {
+      width: 100%;
+      padding: 16px 16px 16px 3rem;
+      background-color: $color-white;
+      border: 1px solid $color-darkBlue-light-2;
+      border-radius: 8px;
+      color: $color-obsidian;
+      font-size: 16px;
+      outline: none;
+
+      &::placeholder {
+        color: $color-gray-dark-2;
+      }
+    }
+  }
+
+  &_resetButton {
+    width: 100%;
+    padding: 16px;
+    background-color: $color-blue-light-2;
+    color: $color-white;
+    font-family: $font-family-title;
+    font-size: 18px;
+    font-weight: 300;
+    letter-spacing: 1px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out, scale 0.2s ease-in-out;
+
+    &:hover {
+      background-color: $color-blue-dark-2;
+      scale: 0.96;
+    }
+  }
+
+  &_backButton {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    margin-top: 16px;
+    background-color: transparent;
+    border: 1px solid $color-white;
+    color: $color-white;
+    font-size: 16px;
+    border-radius: 8px;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, scale 0.2s ease-in-out;
+    font-family: $font-family-title;
+    text-decoration: none;
+
+    &:hover {
+      scale: 0.96;
+      background-color: $color-white;
+      color: $color-obsidian;
+    }
+  }
+}

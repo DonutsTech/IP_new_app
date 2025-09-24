@@ -1,0 +1,140 @@
+@import "./variables";
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: $color-white;
+  font-family: $font-family-text;
+  padding: 32px;
+  box-sizing: border-box;
+
+  h2 {
+    font-weight: 500;
+  }
+
+  p {
+    width: 100%;
+    padding: 16px 32px;
+    text-align: center;
+  }
+
+  .loginContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+    color: $color-white;
+    font-family: $font-family-text;
+    padding: 0 32px;
+    width: 100%;
+    max-width: 420px;
+    min-width: 300px;
+
+    &_signupText {
+      margin-top: 24px;
+      font-size: 16px;
+      text-align: center;
+
+      &_signupLink {
+        color: $color-blue-light-3;
+        text-decoration: none;
+        margin-left: 4px;
+        font-weight: 600;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+
+  .form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 400px;
+    min-width: 300px;
+    margin-top: 16px;
+
+    &_inputGroup {
+      position: relative;
+      margin-bottom: 16px;
+
+      .inputIcon {
+        position: absolute;
+        top: 50%;
+        left: 16px;
+        transform: translateY(-50%);
+        color: $color-gray-dark-1;
+        font-size: 1.25rem;
+        width: 24px;
+        height: 24px;
+      }
+
+      &_input {
+        width: 100%;
+        padding: 16px 16px 16px 3rem;
+        background-color: $color-white;
+        border: 1px solid $color-darkBlue-light-2;
+        border-radius: 8px;
+        color: $color-obsidian;
+        font-size: 16px;
+        outline: none;
+
+        &::placeholder {
+          color: $color-gray-dark-2;
+        }
+      }
+    }
+
+    &_forgotPassword {
+      text-align: left;
+      margin-bottom: 1.5rem;
+      font-size: 0.9rem;
+
+      &_forgotPasswordLink {
+        color: $color-white;
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+
+    &_loginButton {
+      width: 100%;
+      padding: 16px;
+      background-color: $color-blue-light-2;
+      color: $color-white;
+      font-size: 18px;
+      font-weight: 600;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.2s ease-in-out, scale 0.2s ease-in-out;
+
+      &:hover {
+        background-color: $color-blue-dark-2;
+        scale: 0.96;
+      }
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    min-height: auto;
+    padding: 24px 16px;
+    justify-content: flex-start;
+
+    .loginContainer {
+      min-width: unset;
+      padding: 0;
+    }
+
+    h2, p {
+      text-align: center;
+    }
+  }
+}

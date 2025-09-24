@@ -1,0 +1,46 @@
+.Container {
+  margin: 16px 0;
+}
+
+.label {
+  color: $color-white;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+
+  .input {
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+    cursor: pointer;
+    appearance: none;
+    border: 2px solid $color-blue-light-3;
+    border-radius: 4px;
+    position: relative;
+    transition: background-color 0.3s, border-color 0.3s;
+
+    &:checked {
+      background-color: $color-blue-dark-1;
+      border-color: $color-blue-dark-1;
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 0px;
+        left: 4px;
+        width: 6px;
+        height: 10px;
+        border: solid $color-white;
+        border-width: 0 3px 3px 0;
+        transform: rotate(45deg);
+      }
+    }
+  }
+}
+
+.linkModal {
+  color: $color-blue-light-3;
+  text-decoration: underline;
+  cursor: pointer;
+}

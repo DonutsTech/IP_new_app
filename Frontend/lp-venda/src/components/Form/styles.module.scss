@@ -1,0 +1,83 @@
+.form {
+  background-color: $color-white;
+  padding: 40px 24px;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba($color-obsidian, 0.1);
+  width: 100%;
+  max-width: 450px;
+  box-sizing: border-box;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.form__group {
+  margin-bottom: 25px;
+
+  label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: $color-obsidian;
+    font-size: 1rem;
+    font-family: $font-family-text;
+  }
+
+  input,
+  select {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid rgba($color-obsidian, 0.2);
+    border-radius: 4px;
+    font-size: 1rem;
+    color: $color-obsidian;
+    box-sizing: border-box;
+    font-family: $font-family-text;
+
+    &:focus {
+      border-color: $color-blue-light-1;
+      outline: none;
+      box-shadow: 0 0 0 3px rgba($color-blue-light-1, 0.2);
+    }
+
+    &::placeholder {
+      color: $color-gray-dark-1;
+    }
+  }
+
+  select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20256%20512%22%3E%3Cpath%20fill%3D%22%23333%22%20d%3D%22M250.3%20224.3l-128%20128c-4.7%204.7-12.3%204.7-17%200l-128-128c-4.7-4.7-4.7-12.3%200-17l7.5-7.5c4.7-4.7%2012.3-4.7%2017%200L128%20297.4l102.3-102.3c4.7-4.7%2012.3-4.7%2017%200l7.5%207.5c4.7%204.7%204.7%2012.3%200%2017z%22%2F%3E%3C%2Fsvg%3E');
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    background-size: 12px;
+    padding-right: 40px;
+  }
+}
+
+.submit__button {
+  width: 100%;
+  padding: 15px;
+  background-color: $color-blue-light-1;
+  color: $color-white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  font-family: $font-family-text;
+
+  &:hover {
+    background-color: $color-blue-base;
+    transform: translateY(-2px);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}

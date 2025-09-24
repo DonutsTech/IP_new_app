@@ -1,0 +1,22 @@
+.section {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    height: auto;
+    min-height: 190px;
+    gap: 28px;
+    background-color: $color-darkBlue-dark-3;
+    color: $color-white;
+    padding: 48px 10vw 0px 10vw;
+
+    @media screen and (max-width: 768px) {
+        flex-flow: column nowrap;
+        align-items: center;
+        gap: 24px;
+      }
+
+    @media (max-width: 768px) {
+      padding: 32px 2vw 0px 2vw;
+    }
+  }

@@ -1,0 +1,150 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 100;
+  backdrop-filter: blur(3px);
+}
+
+.modal {
+  width: 90%;
+  // max-width: 1440px;
+  height: 90dvh;
+  position: fixed;
+  z-index: 101;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: $color-white;
+  border-radius: 24px;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+  box-shadow: 0 0 48px rgba(0, 0, 0, 0.8);
+  transition: all 0.2s ease-in-out;
+
+  &_header {
+    width: 100%;
+    height: 10%;
+    position: relative;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    box-shadow: 10px 0px 10px black;
+    z-index: 2;
+
+
+    &_title {
+      color: $color-darkBlue-base;
+      font-size: 1.5em;
+
+      @media (max-width: 560px) {
+        padding-top: 56px;
+      }
+    }
+
+    &_icon {
+      color: $color-red-base;
+      font-size: 32px;
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      cursor: pointer;
+      transition: all 0.2s ease-in-out;
+
+      &:hover {
+        scale: 0.95;
+      }
+    }
+
+  }
+
+  &_body {
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+
+    color: $color-darkBlue-base;
+  }
+
+  &_footer {
+    width: 100%;
+    height: 25%;
+    padding: 16px;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 16px;
+    position: relative;
+    box-shadow: 10px 0px 10px black;
+
+    &_logo {
+      width: 210px;
+      height: auto;
+      position: absolute;
+      top: 50%;
+      left: 24px;
+      transform: translate(0, -50%);
+    }
+
+    &_button {
+      padding: 12px 16px;
+      border-radius: 8px;
+      background-color: $color-darkBlue-base;
+      border: none;
+      color: $color-white;
+      font-weight: 600;
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s ease-in-out;
+      gap: 16px;
+      margin: 0 8px;
+
+
+      &:disabled {
+        background-color: $color-blue-base;
+        border: solid 2px $color-ciano-base;
+        pointer-events: none;
+        cursor: not-allowed;
+      }
+
+      &:hover {
+        scale: 0.95;
+        background-color: $color-darkBlue-dark-3;
+      }
+    }
+
+    @media screen and (max-width: 1040px) {
+      align-items: flex-start;
+      gap: 8px;
+
+      .modal_footer_logo {
+        width: clamp(6.5rem, 2.9926rem + 15.5882vw, 13.125rem);
+        top: 80%
+      }
+      .modal_footer_button {
+        font-size: clamp(0.875rem, 0.8088rem + 0.2941vw, 1rem);
+        gap: 4px;
+        padding: 6px 8px;
+
+        @media screen and (max-width: 560px) {
+          font-size: 0 !important;
+          padding: 8px;
+
+          .modal_footer_button_icon {
+            font-size: 24px;
+          }
+        }
+      }
+    }
+  }
+}

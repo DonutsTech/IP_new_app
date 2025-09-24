@@ -1,0 +1,37 @@
+version: '3.8'
+
+services:
+  api:
+    build: ./Backend/interactPlay-backend
+    container_name: interact-api
+    ports:
+      - "4000:4000"
+    volumes:
+      - .:/usr/src/api
+    depends_on:
+      - db
+    env_file:
+      - ./Backend/interactPlay-backend/.env
+      
+  db:
+    build: ./Backend/interactPlay-backend/.docker/postgres
+    container_name: interact-db
+    restart: always
+    tty: true
+    ports:
+      - "5432:5432"
+    volumes:
+      - .docker/dbdata:/var/lib/postgresql/data
+    env_file:
+      - .env
+
+  stripe-cli:
+    image: stripe/stripe-cli:latest
+    container_name: stripe-cli
+    env_file:
+      - .env
+    command: listen --forward-to http://app:4000/data/webhook
+    depends_on:
+      - app
+    volumes:
+    - ./stripe-config:/root/.config/stripe

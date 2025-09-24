@@ -1,0 +1,38 @@
+.btnDefault {
+      padding: 16px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      outline: none;
+      outline-offset: none;
+      border: none;
+      background-color: $color-blue-base;
+      font-family: $font-family-text;
+      font-size: 16px;
+      font-weight: 600;
+      color: $color-white;
+      border-radius: 8px;
+      cursor: pointer;
+      box-shadow: 0px 8px 8px rgba($color-obsidian, 0.3);
+      transition: background-color 0.3s ease-in-out;
+      text-decoration: none;
+
+      @media screen and (max-width: 768px) {
+        font-size: clamp(0.875rem, 0.6544rem + 0.9804vw, 1.125rem);
+      }
+
+      &_arrow {
+        transition: all 0.2s ease-in-out;
+      }
+
+      &:hover {
+        background-color: $color-blue-light-1;
+        box-shadow: none;
+        scale: 0.98;
+        .btnDefault_arrow {
+          transform: translateX(8px);
+        }
+      }
+    }

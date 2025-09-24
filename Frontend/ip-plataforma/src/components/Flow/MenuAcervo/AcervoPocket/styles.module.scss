@@ -1,0 +1,208 @@
+// .dragActive {
+//   border: 2px dashed $color-blue-base;
+//   background-color: transparent !important;
+// }
+
+// .rootDropActive {
+//   box-shadow: 0 0 0 4px #5B71B9;
+//   background-color: rgba(91,113,185,0.08) !important;
+//   transition: box-shadow 0.2s, background 0.2s;
+// }
+
+// .acervoPocket {
+//   width: 100%;
+//   height: 100%;
+
+//   &_upload {
+//     width: 100%;
+//     height: 148px;
+//     background-color: $color-darkBlue-dark-2;
+//     border-radius: 8px;
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     position: relative;
+//     transition: all 200ms ease-in-out;
+
+//     img {
+//       width: auto;
+//       height: 70%;
+//       opacity: 0.3;
+//     }
+
+//     .acervoPocket_upload_text {
+//       opacity: 0.6;
+//       display: none;
+//       position: absolute;
+//       bottom: 8px;
+//       font-size: 14px;
+//     }
+
+//     &:hover {
+//       border: dashed 2px $color-white;
+
+//       .acervoPocket_upload_text {
+//         display: block;
+//       }
+//     }
+//   }
+
+//   &_acervo {
+//     width: 100%;
+//     height: auto;
+//     overflow-y: auto;
+//     padding: 16px 0;
+
+//     &_header {
+//       display: flex;
+//       align-items: center;
+//       justify-content: space-between;
+//       margin-bottom: 8px;
+//     }
+
+//     &_count {
+//       font-size: 14px;
+//       color: $color-white;
+//       text-align: center;
+//       margin-bottom: 16px;
+//       font-weight: bold;
+//       opacity: 0.6;
+//     }
+
+//     &_addFolder {
+//       height: 100%;
+//       background-color: transparent !important;
+//       border: none;
+//       padding: 8px;
+//       color: $color-ciano-base;
+//       font-size: 24px;
+//       margin-top: -8px;
+//       cursor: pointer;
+
+//       &:disabled {
+//         color: $color-darkBlue-dark-1;
+//         cursor: not-allowed;
+//       }
+//     }
+
+// /* Scroll invisível universal: mover para fora do bloco aninhado */
+// .acervoPocket_acervo_list {
+//   width: 100%;
+//   height: 264px;
+//   overflow-y: auto;
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   justify-content: flex-start;
+//   gap: 8px;
+//   scrollbar-width: none; /* Firefox */
+//   -ms-overflow-style: none; /* IE/Edge */ 
+//   background-clip: padding-box;
+// }
+// .acervoPocket_acervo_list::-webkit-scrollbar {
+//   width: 0px;
+//   background: transparent;
+//   display: none;
+// }
+
+//     .acervoPocket_acervo_list::-webkit-scrollbar {
+//       width: 0px;
+//       background: transparent;
+//       display: none;
+//     }
+
+//     justify-content: flex-start;
+//     gap: 8px;
+//     scrollbar-width: none;
+//     /* Firefox */
+//     -ms-overflow-style: none;
+//     /* IE/Edge */
+//     background-clip: padding-box;
+//   }
+
+//   /* Scrollbar invisível universal */
+//   .acervoPocket_acervo_list::-webkit-scrollbar {
+//     width: 0px;
+//     background: transparent;
+//   }
+
+// }
+
+
+
+// .folderItem {
+//   width: 100%;
+//   height: auto;
+//   min-height: 56px;
+//   background-color: $color-darkBlue-dark-2;
+//   border-radius: 8px;
+//   display: flex;
+//   flex-flow: column nowrap;
+//   justify-content: space-between;
+//   align-items: center;
+//   padding: 4px;
+//   gap: 8px;
+// }
+
+// .folderHeader {
+//   display: flex;
+//   align-items: center;
+//   justify-content: space-around;
+//   width: 100%;
+
+//   &_icon {
+//     font-size: 32px;
+//     color: $color-yellow-dark-1;
+//   }
+
+//   &_toggle {
+//     padding: 8px;
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+//     background-color: transparent !important;
+//     border: none;
+//     cursor: pointer;
+//     font-size: 24px;
+//     color: $color-white;
+//   }
+
+// }
+
+// .folderHeader_name {
+//   width: 80%;
+//   background-color: transparent !important;
+//   border: none;
+//   color: $color-white;
+//   font-size: 14px;
+//   margin-left: 8px;
+//   outline: none;
+// }
+
+// .folderContent {
+//   display: flex;
+//   flex-flow: column nowrap;
+//   gap: 8px;
+//   padding: 8px;
+//   pointer-events: fill;
+// }
+
+.container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
+
+  &_videosQt {
+    width: 100%;
+    text-align: left;
+    font-size: 14px;
+    color: $color-white;
+    opacity: 0.6;
+    padding-left: 4px;
+    margin: 4px 0;
+  }
+}

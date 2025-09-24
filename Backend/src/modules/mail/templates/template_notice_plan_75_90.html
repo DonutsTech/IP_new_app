@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Uso do Plano</title>
+  </head>
+  <body
+    style="
+      margin: 0;
+      padding: 0;
+      font-family: sans-serif;
+      background-color: #eeeeee;
+    "
+  >
+    <div
+      style="
+        background-color: #f2f2f2;
+        max-width: 600px;
+        margin: 40px auto;
+        padding: 30px 30px 16px 30px;
+        border-radius: 8px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      "
+    >
+      <div
+        style="
+          text-align: center;
+          padding-bottom: 25px;
+          border-bottom: 1px solid #e4e4e4;
+        "
+      >
+        <h1
+          style="color: #060664; font-size: 28px; font-weight: bold; margin: 0"
+        >
+          {Logo InteractiPlay}
+        </h1>
+      </div>
+
+      <div style="text-align: center; padding: 30px 0">
+        <h2
+          style="
+            color: #060664;
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+          "
+        >
+          Atenção: Seu Plano {{user.plan}} Está Quase Acabando
+        </h2>
+
+        <p
+          style="
+            color: #060664;
+            font-size: 16px;
+            line-height: 1.6;
+            max-width: 500px;
+            margin: 0 auto 20px;
+          "
+        >
+          Seu plano {{user.plan}} está quase no fim! Você já utilizou
+          {{user.usage}} dos plays. Para evitar pagar plays extras e continuar
+          usando a InteractiPlay sem interrupções, considere fazer um upgrade.
+        </p>
+
+        <div
+          style="
+            background-color: #e4e4e4;
+            border-left: 5px solid #ffce08;
+            padding: 15px 20px;
+            margin: 30px auto;
+            max-width: 350px;
+            text-align: left;
+            border-radius: 4px;
+          "
+        >
+          <p style="color: #060664; font-size: 14px; margin: 0">
+            Seu limite está próximo.
+          </p>
+          <p
+            style="
+              font-size: 18px;
+              font-weight: bold;
+              color: #ffce08;
+              margin: 5px 0 0;
+            "
+          >
+            Uso: {{user.usage}}%
+          </p>
+        </div>
+
+        <span>if(user.plan != id do plano mais caro) { </span><br />
+        <a
+          href="#"
+          style="
+            display: inline-block;
+            padding: 15px 35px;
+            margin-top: 10px;
+            font-size: 18px;
+            color: #f2f2f2;
+            background-color: #231183;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+          "
+        >
+          Ver Opções de Planos
+        </a>
+
+        <p
+          style="
+            color: #9c9c9c;
+            font-size: 12px;
+            line-height: 1.5;
+            margin-top: 40px;
+            max-width: 450px;
+            margin-left: auto;
+            margin-right: auto;
+          "
+        >
+          Este é um e-mail de notificação de uso do seu plano.
+        </p>
+      </div>
+      <div style="width: 100%; text-align: center">
+        <hr style="border: none; border-top: 1px solid #e4e4e4" />
+        <p>InteractiPlay - Sua plataforma de videos VSL</p>
+      </div>
+    </div>
+  </body>
+</html>

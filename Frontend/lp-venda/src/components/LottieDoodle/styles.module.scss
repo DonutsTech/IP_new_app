@@ -1,0 +1,16 @@
+.lottieWrapper {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1080/1350;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  & > div {
+    // border: 1px solid red;
+    mix-blend-mode: lighten;
+  }
+
+
+
+}

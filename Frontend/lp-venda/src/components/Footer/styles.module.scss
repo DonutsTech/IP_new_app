@@ -1,0 +1,149 @@
+@use "../../styles/variables" as *;
+
+.footer {
+  color: $color-white;
+  width: 100%;
+  box-sizing: border-box;
+  font-family: $font-family-text;
+
+  .footer_content_wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 0 auto;
+    padding-bottom: 8px;
+    gap: 20px;
+    background-color: $color-darkBlue-dark-3;
+    padding: 24px 5vw ;
+  }
+
+  .footer_brand {
+    flex: 2;
+    min-width: 250px;
+    padding-right: 20px;
+    display: flex;
+    flex-direction: column;
+
+    .footer_logo {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+
+      svg {
+        margin-right: 10px;
+        fill: $color-white;
+      }
+
+      span {
+        font-weight: bold;
+        font-size: 1.2em;
+      }
+    }
+
+    .footer_description {
+      font-size: 1.05em;
+      line-height: 1.5;
+      color: rgba($color-white, 0.8);
+    }
+  }
+
+  .footer_section {
+    flex: 1;
+    min-width: 150px;
+    margin-bottom: 20px;
+
+    h3 {
+      font-size: 1.3em;
+      margin-bottom: 20px;
+      position: relative;
+      padding-bottom: 5px;
+      text-align: left;
+      font-weight: 500;
+
+      &::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 60px;
+        height: 2px;
+        background-color: $color-white;
+      }
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+
+      li {
+        margin-bottom: 10px;
+
+        a {
+          color: $color-white;
+          text-decoration: none;
+          font-size: 1em;
+
+          &:hover {
+            color: $color-gray-base;
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+
+  .footer_social {
+    min-width: 150px;
+    .social_icons {
+      display: flex;
+      gap: 15px;
+
+      a {
+        color: $color-white;
+        font-size: 1.5em;
+        transition: color 0.3s ease;
+
+        &:hover {
+          scale: 0.92;
+        }
+
+      }
+    }
+  }
+
+  &_copyright {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.8em;
+    color: $color-gray-dark-1;
+    background-color: $color-darkBlue-dark-3;
+    padding: 0px 10% 24px 10%;
+    font-size: 1em;
+    color: $color-white;
+    flex-wrap: wrap;
+    gap: 8px;
+
+    p{
+        margin: 0 auto;
+    }
+
+    a {
+      color: $color-white;
+      text-decoration: none;
+      margin: 0 auto;
+
+      &:hover {
+        color: $color-blue-light-3;
+        text-decoration: none;
+      }
+    }  
+    
+    &_donuts {
+        display: flex;
+        align-items: center;
+        
+    }
+  }
+}

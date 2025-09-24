@@ -1,0 +1,81 @@
+@import "./variables";
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: $color-white;
+  font-family: $font-family-text;
+  box-sizing: border-box;
+  h2 {
+    font-weight: 500;
+  }
+  p {
+    width: 90%;
+    padding: 16px 0px;
+    text-align: center;
+  }
+  .registerContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: $color-white;
+    font-family: $font-family-text;
+    padding: 0px 32px;
+    width: 100%;
+    min-width: 300px;
+
+    &_signupText {
+      margin-top: 0px;
+      font-size: 16px;
+      text-align: center;
+
+      &_signupLink {
+        color: $color-blue-light-3;
+        text-decoration: none;
+        margin-left: 4px;
+        font-weight: 600;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+
+    .form {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      max-width: 400px;
+      min-width: 300px;
+
+      &_cadastroButton {
+        width: 100%;
+        padding: 16px;
+        background-color: $color-blue-light-2;
+        color: $color-white;
+        font-size: 18px;
+        font-weight: 600;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background-color 0.2s ease-in-out, scale 0.2s ease-in-out;
+
+        &:disabled {
+          background-color: $color-gray-dark-1;
+          color: $color-obsidian;
+          cursor: not-allowed;
+        }
+
+        &:not(:disabled):hover {
+          background-color: $color-blue-dark-2;
+          scale: 0.96;
+        }
+      }
+    }
+  }
+
+
+}

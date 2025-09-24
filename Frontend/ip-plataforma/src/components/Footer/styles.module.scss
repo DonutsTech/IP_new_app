@@ -1,0 +1,38 @@
+.footer {
+  width: 100%;
+  height: auto;
+  padding: 8px 0px;
+  background-color: $color-darkBlue-dark-3;
+  position: fixed;
+  bottom: 0;
+  z-index: 10;
+
+  &_container {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-around;
+    gap: 16px;
+    color: $color-white;
+    font-size: 16px;
+
+    .link{
+      text-decoration: none;
+      color: $color-white;
+
+      .logo {
+        margin-bottom: -5px;
+      }
+
+      &:hover {
+        scale: 1;
+        .logo{
+          transition: all 0.3s ease-in-out;
+          transform: rotate(-60deg);
+        }
+      }
+    }
+  }
+}

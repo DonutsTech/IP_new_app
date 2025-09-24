@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap');
+
+// Colors
+
+//obsidian
+$color-obsidian: #1A2228;
+
+//white
+$color-white: #F2F2F2;
+
+
+// blue
+$color-blue-base: #231183;
+$color-blue-dark-1: #130B7A;
+$color-blue-dark-2: #060664;
+$color-blue-dark-3: #02084D;
+$color-blue-light-1: #353AA4;
+$color-blue-light-2: #5B71B9;
+$color-blue-light-3: #82A1CD;
+
+//darkBlue
+$color-darkBlue-base: #0F073E;
+$color-darkBlue-dark-1: #070337;
+$color-darkBlue-dark-2: #00002E;
+$color-darkBlue-dark-3: #000125;
+$color-darkBlue-light-1: #2F315F;
+$color-darkBlue-light-2: #586180;
+$color-darkBlue-light-3: #818EA1;
+
+//purple
+$color-purple-base: #9900FF;
+$color-purple-dark-1: #6A00CF;
+$color-purple-dark-2: #4100A0;
+$color-purple-dark-3: #1F0070;
+$color-purple-light-1: #AE30FF;
+$color-purple-light-2: #C25FFF;
+$color-purple-light-3: #D58FFF;
+
+//ciano
+$color-ciano-base: #00FFF1;
+$color-ciano-dark-1: #00CFCE;
+$color-ciano-dark-2: #00A0A0;
+$color-ciano-dark-3: #007070;
+$color-ciano-light-1: #30FFFB;
+$color-ciano-light-2: #5FFFFF;
+$color-ciano-light-3: #8FFFFF;
+
+//yellow
+$color-yellow-base: #FFCE08;
+$color-yellow-dark-1: #CFAE00;
+$color-yellow-dark-2: #A08B00;
+$color-yellow-dark-3: #706500;
+$color-yellow-light-1: #FFDC30;
+$color-yellow-light-2: #FFE85F;
+$color-yellow-light-3: #FFF18F;
+
+//green
+$color-green-base: #0CB189;
+$color-green-dark-1: #039773;
+$color-green-dark-2: #007A5C;
+$color-green-dark-3: #005A42;
+$color-green-light-1: #30FFA9;
+$color-green-light-2: #5FFF9E;
+$color-green-light-3: #8FFFA2;
+
+//red
+$color-red-base: #C72C41;
+$color-red-dark-1: #A91D30;
+$color-red-dark-2: #871121;
+$color-red-dark-3: #630815;
+$color-red-light-1: #D74E61;
+$color-red-light-2: #E47382;
+$color-red-light-3: #EF9AA5;
+
+//gray
+$color-gray-base: #D9D9D9;
+$color-gray-dark-1: #9C9C9C;
+$color-gray-dark-2: #606060;
+$color-gray-dark-3: #2A2A2A;
+$color-gray-light-1: #E4E4E4;
+$color-gray-light-2: #EEEEEE;
+$color-gray-light-3: #FEFEFE;
+
+//Fonts
+$font-family-text: 'Poppins', sans-serif;
+$font-family-title: 'Russo One', sans-serif;
+
+$clamp-default: clamp(0.875rem, 0.8rem + 0.375vw, 1.25rem);
+// $clamp-default: clamp(0.875rem, 0.6667rem + 0.9259vw, 1.5rem);
+
+
+
+//mixins
+@mixin text($type) {
+  @if $type =='h1' {
+    font-family: $font-family-title;
+    font-size: 3em;
+    font-weight: 500;
+    line-height: 1.1;
+    letter-spacing: 1.2px;
+    text-align: center;
+    user-select: none;
+  }
+  @if $type =='h2' {
+    font-family: $font-family-title;
+    font-size: 2.5em;
+    font-weight: 500;
+    line-height: 1.4;
+    letter-spacing: 1.4px;
+    text-align: center;
+    user-select: none;
+  }
+  @if $type =='h3' {
+    font-family: $font-family-title;
+    font-size: 2em;
+    font-weight: 500;
+    line-height: 1.4;
+    letter-spacing: 1.2px;
+    text-align: center;
+    user-select: none;
+  }
+  @if $type =='h4' {
+    font-family: $font-family-title;
+    font-size: 1.5em;
+    font-weight: 500;
+    line-height: 1.4;
+    letter-spacing: 1.2px;
+    text-align: center;
+    user-select: none;
+  }
+  @if $type =='p' {
+    font-family: $font-family-text;
+    font-size: 1em;
+    font-weight: 500;
+    line-height: 1.6;
+    letter-spacing: 0.8px;
+    user-select: none;
+  }
+}
