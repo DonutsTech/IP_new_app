@@ -43,12 +43,13 @@ services:
       - "3000:3000"
     volumes:
       - ./Frontend/lp-venda:/usr/src/app
+      - /usr/src/app/node_modules
     tty: true
     depends_on:
       - backend
     env_file:
       - ./Frontend/lp-venda/.env
-    command: sh -c "npm run dev"
+    command: sh -c "npm install && npm run dev"
 
   plataforma:
     build: ./Frontend/ip-plataforma
@@ -60,12 +61,13 @@ services:
       - "3001:3001"
     volumes:
       - ./Frontend/ip-plataforma:/usr/src/app
+      - /usr/src/app/node_modules
     tty: true
     depends_on:
       - backend
     env_file:
       - ./Frontend/ip-plataforma/.env
-    command: sh -c "npm run dev"
+    command: sh -c "npm install && npm run dev"
     
   nginx:
     container_name: nginx
