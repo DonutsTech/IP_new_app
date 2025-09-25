@@ -1,6 +1,6 @@
 FROM node:20
 
-WORKDIR /usr/src/app
+WORKDIR /usr/src/api
 
 RUN apt-get update && apt-get install -y ffmpeg
 

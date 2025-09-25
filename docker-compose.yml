@@ -1,37 +1,95 @@
 version: '3.8'
 
 services:
-  api:
-    build: ./Backend/interactPlay-backend
-    container_name: interact-api
-    ports:
-      - "4000:4000"
-    volumes:
-      - .:/usr/src/api
-    depends_on:
-      - db
-    env_file:
-      - ./Backend/interactPlay-backend/.env
-      
   db:
-    build: ./Backend/interactPlay-backend/.docker/postgres
-    container_name: interact-db
+    build: ./Backend/.docker/postgres
+    container_name: db
     restart: always
     tty: true
     ports:
       - "5432:5432"
     volumes:
-      - .docker/dbdata:/var/lib/postgresql/data
+      - ./Backend/.docker/dbdata:/var/lib/postgresql/data
     env_file:
-      - .env
+      - ./Backend/.env
+    networks:
+      - interact-network
+  backend:
+    build: ./Backend
+    container_name: backend
+    working_dir: /usr/src/api
+    networks:
+      - interact-network
+    restart: always
+    volumes:
+      - ./Backend:/usr/src/api
+      - ./Backend/uploads:/usr/src/api/uploads
+    tty: true
+    ports:
+      - "4000:4000"
+    command: sh -c " npm install && npx prisma generate && npx prisma migrate dev --name init && npx prisma migrate deploy && npm run dev"
+    env_file:
+      - ./Backend/.env
+    depends_on:
+      - db
+  
+  vendas:
+    build: ./Frontend/lp-venda
+    container_name: vendas
+    working_dir: /usr/src/app
+    networks:
+      - interact-network
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./Frontend/lp-venda:/usr/src/app
+    tty: true
+    depends_on:
+      - backend
+    env_file:
+      - ./Frontend/lp-venda/.env
+    command: sh -c "npm run dev"
+
+  plataforma:
+    build: ./Frontend/ip-plataforma
+    container_name: plataforma
+    working_dir: /usr/src/app
+    networks:
+      - interact-network
+    ports:
+      - "3001:3001"
+    volumes:
+      - ./Frontend/ip-plataforma:/usr/src/app
+    tty: true
+    depends_on:
+      - backend
+    env_file:
+      - ./Frontend/ip-plataforma/.env
+    command: sh -c "npm run dev"
+    
+  nginx:
+    container_name: nginx
+    build: ./nginx
+    ports:
+      - "8080:80"
+    depends_on:
+      - backend
+      - vendas
+      - plataforma
+    networks:
+      - interact-network
 
   stripe-cli:
     image: stripe/stripe-cli:latest
     container_name: stripe-cli
     env_file:
-      - .env
-    command: listen --forward-to http://app:4000/data/webhook
+      - ./Backend/.env
+    command: listen --forward-to http://backend:4000/data/webhook
     depends_on:
-      - app
+      - backend
     volumes:
-    - ./stripe-config:/root/.config/stripe
+      - ./Backend/stripe-config:/root/.config/stripe
+
+networks:
+  interact-network:
+    driver: bridge
