@@ -17,9 +17,11 @@ const nextConfig = {
     @use "variables" as *;
     `,
   },
+
   
 };
 
 export default withVideos(nextConfig, {
   assetsPrefix: '/media/videos',
+  output: 'standalone'
 });
