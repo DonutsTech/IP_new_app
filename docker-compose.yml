@@ -8,12 +8,19 @@ services:
     tty: true
     ports:
       - "5432:5432"
+    # Substituímos bind mount por named volume para evitar erros de montagem no Windows e problemas de permissões
     volumes:
-      - ./Backend/.docker/dbdata:/var/lib/postgresql/data
+      # - ./Backend/.docker/dbdata:/var/lib/postgresql/data
+      - pgdata:/var/lib/postgresql/data
     env_file:
       - ./Backend/.env
     networks:
       - interact-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER:-postgres}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
   backend:
     build: ./Backend
     container_name: backend
@@ -86,7 +93,8 @@ services:
     container_name: stripe-cli
     env_file:
       - ./Backend/.env
-    command: listen --forward-to http://backend:4000/data/webhook
+    # Aguarda alguns segundos para backend subir antes de iniciar o forwarding
+    command: sh -c "sleep 6 && stripe listen --forward-to http://backend:4000/data/webhook"
     depends_on:
       - backend
     volumes:
@@ -95,3 +103,5 @@ services:
 networks:
   interact-network:
     driver: bridge
+volumes:
+  pgdata:
