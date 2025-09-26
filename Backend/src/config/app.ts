@@ -39,7 +39,7 @@ class App {
     PlanRouter.create(router);
     CheckoutRouter.create(router);
     VideoRouter.create(router);
-    this.express.use('/api', router);
+    this.express.use('/backend', router);
     this.express.use(errorHandler);
   }
 
